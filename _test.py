@@ -31,3 +31,15 @@ def test_fifth_power():
 def test_invalid_input():
     with pytest.raises(TypeError):
         square("string")
+
+
+import subprocess
+
+def test_code_quality():
+    """Check code style using flake8."""
+    result = subprocess.run(
+        ["flake8", "--max-line-length=100", "test_math.py"],  # replace with your filename
+        capture_output=True,
+        text=True
+    )
+    assert result.returncode == 0, f"Code quality checks failed:\n{result.stdout}"
